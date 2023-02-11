@@ -1,4 +1,4 @@
-# hackernews-async-ts
+# rem_active-async-ts
 
 [Hacker News](https://news.ycombinator.com/) showcase using typescript && egg
 

@@ -10,7 +10,7 @@ export default (appInfo: EggAppInfo) => {
   // add your egg config in here
   config.middleware = [];
   config.logger = {
-    level: "DEBUG",
+    level: "INFO",
   };
   // add your special config in here
   const bizConfig = {
