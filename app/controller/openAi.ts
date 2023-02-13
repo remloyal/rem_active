@@ -2,7 +2,7 @@ import { Controller } from 'egg';
 import { Configuration, OpenAIApi } from "openai";
 
 const configuration = new Configuration({
-  apiKey: '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',
+  apiKey: '',
 });
 
 const openai = new OpenAIApi(configuration);
