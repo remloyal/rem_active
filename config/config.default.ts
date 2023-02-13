@@ -6,6 +6,7 @@ export default (appInfo: EggAppInfo) => {
   // override config from framework / plugin
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + "_1676106504909_6883";
+  // console.log(appInfo);
 
   // add your egg config in here
   config.middleware = [];
@@ -30,18 +31,6 @@ export default (appInfo: EggAppInfo) => {
     sourceUrl: `https://github.com/eggjs/examples/tree/master/${appInfo.name}`,
   };
 
-  // config.sequelize = {
-  //   dialect: "mysql",
-  //   host: "150.158.34.247",
-  //   port: 3306,
-  //   username: "egg",
-  //   password: "egg",
-  //   database: "egg",
-  //   default: {
-  //     underscored: true,
-  //     freezeTableName: true,
-  //   },
-  // };
   config.sequelize = {
     dialect: "mysql",
     database: "egg", //你的数据库名称
@@ -58,6 +47,7 @@ export default (appInfo: EggAppInfo) => {
       underscored: false,
     },
   };
+
   // the return config will combines to EggAppConfig
   return {
     ...config,
