@@ -4,9 +4,11 @@
 
 import 'egg';
 import ExportHome from '../../../app/controller/home';
+import ExportOpenAi from '../../../app/controller/openAi';
 
 declare module 'egg' {
   interface IController {
     home: ExportHome;
+    openAi: ExportOpenAi;
   }
 }
