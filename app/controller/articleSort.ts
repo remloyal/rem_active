@@ -18,11 +18,7 @@ export default class ArticleSortController extends Controller {
       lable_alias,
       lable_description,
     });
-    ctx.body = {
-      data: data,
-      code: 200,
-      message: '数据添加成功',
-    };
+    ctx.service.recover.success(data, '数据添加成功');
   }
 
   // 删除
@@ -36,17 +32,9 @@ export default class ArticleSortController extends Controller {
     });
     if (data) {
       data.destroy();
-      ctx.body = {
-        data: data,
-        code: 200,
-        message: '数据添加成功',
-      };
+      ctx.service.recover.success(null, '数据删除成功');
     } else {
-      ctx.body = {
-        data: data,
-        code: 200,
-        message: '数据查找失败',
-      };
+      ctx.service.recover.fail('数据删除失败');
     }
   }
 

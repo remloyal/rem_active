@@ -38,6 +38,7 @@ export default (appInfo: EggAppInfo) => {
     password: 'egg', //你的数据库密码
     host: '150.158.34.247',
     port: 3306,
+    timezone: '+08:00',
     define: {
       // 使用自定义的表名
       freezeTableName: true,
@@ -45,6 +46,16 @@ export default (appInfo: EggAppInfo) => {
       timestamps: true,
       // 表名小驼峰
       underscored: false,
+    },
+    dialectOptions: {
+      dateStrings: true,
+      typeCast(field, next) {
+        if (field.type === 'DATETIME') {
+          // 返回正确得时间
+          return field.string();
+        }
+        return next();
+      },
     },
   };
   config.bodyParser = {

@@ -9,5 +9,6 @@ export default (app: Application) => {
   router.get("/", controller.home.index);
   // router.post("/openai", controller.openAi.index);
   require('./router/articleSortRouter')(app)
+  require('./router/articleRouter')(app)
   require('./router/openAi')(app)
 };
