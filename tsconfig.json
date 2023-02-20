@@ -4,5 +4,9 @@
     "app/public",
     "app/views",
     "node_modules*"
-  ]
+  ],
+  "compilerOptions":{
+    "allowJs": true,                       /* 允许编译 javascript 文件。 */
+    "checkJs": false,                       /* 报告 .js 文件中的错误。 */
+  }
 }

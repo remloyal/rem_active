@@ -2,7 +2,7 @@ import { Controller } from 'egg';
 import { Configuration, OpenAIApi } from "openai";
 
 const configuration = new Configuration({
-  apiKey: '',
+  apiKey: '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',
 });
 
 const openai = new OpenAIApi(configuration);
@@ -17,6 +17,7 @@ export default class OpenAiController extends Controller {
       const completion = await openai.createCompletion({
         model: "text-davinci-003",
         prompt: text,
+        max_tokens:2048
       });
       console.log(completion.data);
       
