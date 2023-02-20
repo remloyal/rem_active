@@ -1,12 +1,12 @@
 import { Service } from 'egg';
 
 export default class Recover extends Service {
-  public async success(data = null) {
+  public async success(data = null, message?: string) {
     this.ctx.status = 200;
     this.ctx.body = {
       data: data,
       code: 200,
-      message: '数据请求成功',
+      message: message || '数据请求成功',
     };
   }
 

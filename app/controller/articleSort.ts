@@ -29,7 +29,6 @@ export default class ArticleSortController extends Controller {
   public async deleteSort() {
     const { ctx } = this;
     const id = ctx.query.id;
-    console.log('字段', id);
     const data = await ctx.model.ArticleSort.findOne({
       where: {
         lable_id: id,
@@ -54,6 +53,17 @@ export default class ArticleSortController extends Controller {
   // 更新
   public async updateSort() {
     const { ctx } = this;
-    ctx.body = await ctx.service.test.sayHi('egg');
+    const record = ctx.request.body;
+    const data = await ctx.model.ArticleSort.findOne({
+      where: {
+        lable_id: record.lable_id,
+      },
+    });
+    if (data) {
+      await data.update({ ...record });
+      await ctx.service.recover.success(data, '数据更新成功');
+    } else {
+      await ctx.service.recover.success(data, '未查找到该标签');
+    }
   }
 }

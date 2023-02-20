@@ -1,9 +1,10 @@
 module.exports = (app) => {
-  const { STRING, INTEGER, DATE, BOOLEAN } = app.Sequelize; // 获取数据类型
+  const { STRING, INTEGER, DATE, BOOLEAN, UUIDV4 } = app.Sequelize; // 获取数据类型
   const Article = app.model.define(
-    "rem_article",
+    'rem_article',
     {
       id: { type: INTEGER, primaryKey: true, autoIncrement: true },
+      article_id: { type: STRING, defaultValue: UUIDV4, allowNull: true },
       //   标题
       title: { type: STRING, allowNull: true },
       //   创建时间
