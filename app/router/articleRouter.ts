@@ -5,4 +5,5 @@ module.exports = (app) => {
   router.post("/createArticle", controller.article.createArticle);
   router.get("/deleteArticle", controller.article.deleteArticle);
   router.post("/updateArticle", controller.article.updateArticle);
+  router.post("/getArticlePage", controller.article.getArticlePage);
 };

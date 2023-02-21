@@ -9,6 +9,7 @@ export default class ArticleController extends Controller {
     await ctx.service.recover.success(data);
   }
 
+  // 单个获取详情
   public async getArticle() {
     const { ctx } = this;
     const id = ctx.query.id;
@@ -20,6 +21,22 @@ export default class ArticleController extends Controller {
     await ctx.service.recover.success(data);
   }
 
+  // 分页查询
+  public async getArticlePage() {
+    const { ctx } = this;
+    // const id = ctx.query.id;
+    const record: { page: number; size: number ,} = ctx.request.body;
+
+    const { count, rows } = await ctx.model.Article.findAndCountAll({
+      // where: {
+      //   article_id: id,
+      // },
+      offset: (record.page - 1) * record.size,
+      limit: record.size,
+      order: [['id']],
+    });
+    await ctx.service.recover.list(count, rows, record.size, record.page);
+  }
   //添加
   public async createArticle() {
     const { ctx } = this;

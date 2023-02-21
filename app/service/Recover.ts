@@ -25,4 +25,20 @@ export default class Recover extends Service {
       message: message || '服务器异常',
     };
   }
+
+  // 列表
+  public async list(count, row, size, page) {
+    this.ctx.status = 200;
+    this.ctx.body = {
+      code: 200,
+      message: '成功',
+      data: {
+        current: page,
+        pages: Math.ceil(count / size),
+        size: size,
+        total: count,
+        records: row,
+      },
+    };
+  }
 }
