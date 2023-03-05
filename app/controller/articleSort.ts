@@ -12,13 +12,13 @@ export default class ArticleSortController extends Controller {
   //添加
   public async createSort() {
     const { ctx } = this;
-    const { lable_name, lable_alias, lable_description } = ctx.request.body;
-    const data = await ctx.model.ArticleSort.create({
+    const { lable_name, lable_alias, lable_description } = ctx.request.body.params;
+    await ctx.model.ArticleSort.create({
       lable_name,
       lable_alias,
       lable_description,
     });
-    ctx.service.recover.success(data, '数据添加成功');
+    ctx.service.recover.success(null, '数据添加成功');
   }
 
   // 删除
@@ -41,7 +41,7 @@ export default class ArticleSortController extends Controller {
   // 更新
   public async updateSort() {
     const { ctx } = this;
-    const record = ctx.request.body;
+    const record = ctx.request.body.params;
     const data = await ctx.model.ArticleSort.findOne({
       where: {
         lable_id: record.lable_id,
